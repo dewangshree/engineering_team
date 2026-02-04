@@ -182,6 +182,5 @@ Add authentication layer
 Add multi module generation
 Improve UI styling
 
----
 
 
