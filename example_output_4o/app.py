@@ -156,4 +156,4 @@ with gr.Blocks(title="Trading Simulation Platform") as demo:
         transaction_btn.click(list_transactions, inputs=[], outputs=[transaction_output])
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", server_port=7860)
