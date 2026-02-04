@@ -1,54 +1,213 @@
-# EngineeringTeam Crew
+EngineeringTeam Crew Project
 
-Welcome to the EngineeringTeam Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+This project demonstrates a multi agent software engineering workflow built using crewAI. The system simulates an engineering team where multiple AI agents collaborate to design, develop, test, and generate application modules automatically.
+
+## Live Application
+
+Application is deployed and accessible here
+
+[https://engineering-team.onrender.com](https://engineering-team.onrender.com)
+
+---
+
+## Project Overview
+
+EngineeringTeam Crew is designed to simulate a real software engineering team using AI agents. Each agent performs a dedicated responsibility such as design, backend development, frontend generation, and testing.
+
+The workflow automatically:
+
+1 Generates technical design
+2 Generates backend python module
+3 Generates frontend interface
+4 Generates test cases
+
+All generated files are stored inside the output folder.
+
+---
+
+## Technology Stack
+
+This project uses the following technologies
+
+Python
+CrewAI
+LiteLLM
+FastAPI
+Gradio
+Ollama Local LLM
+Render Deployment
+UV Dependency Manager
+
+---
 
 ## Installation
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+Ensure Python version between 3.10 and 3.12 is installed.
 
-First, if you haven't already, install uv:
+Install UV package manager
 
 ```bash
 pip install uv
 ```
 
-Next, navigate to your project directory and install the dependencies:
+Install project dependencies
 
-(Optional) Lock the dependencies and install them by using the CLI command:
 ```bash
 crewai install
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/engineering_team/config/agents.yaml` to define your agents
-- Modify `src/engineering_team/config/tasks.yaml` to define your tasks
-- Modify `src/engineering_team/crew.py` to add your own logic, tools and specific args
-- Modify `src/engineering_team/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+Create environment file and add your API key if needed
 
 ```bash
-$ crewai run
+OPENAI_API_KEY=your_key_here
 ```
 
-This command initializes the engineering_team Crew, assembling the agents and assigning them tasks as defined in your configuration.
+---
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+## Project Structure
 
-## Understanding Your Crew
+```
+engineering_team
+│
+├── src
+│   └── engineering_team
+│       ├── config
+│       │   ├── agents.yaml
+│       │   └── tasks.yaml
+│       ├── crew.py
+│
+├── output
+│   ├── app.py
+│   ├── generated modules
+│   ├── design documents
+│   └── test files
+│
+├── api.py
+├── requirements.txt
+└── README.md
+```
 
-The engineering_team Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+---
+
+## Running The Crew Locally
+
+Run crew workflow
+
+```bash
+crewai run
+```
+
+This will execute the engineering workflow and generate output modules.
+
+---
+
+## Running API Server
+
+Start FastAPI backend
+
+```bash
+uvicorn api:app --reload
+```
+
+API Documentation will be available at
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## Running Generated Frontend
+
+After crew execution, frontend Gradio interface is generated inside output folder.
+
+Run generated interface
+
+```bash
+python output app.py
+```
+
+Gradio UI will open in browser.
+
+---
+
+## Deployment
+
+This project is deployed using Render cloud platform.
+
+Deployment uses
+
+FastAPI for backend service
+Gradio for frontend interface
+Public endpoint hosting
+
+
+---
+
+## How Workflow Works
+
+Step 1 Engineering Lead Agent creates technical design
+Step 2 Backend Agent implements python module
+Step 3 Frontend Agent builds UI using Gradio
+Step 4 QA Agent generates pytest test cases
+
+Each step uses output from previous agent to simulate real team collaboration.
+
+---
+
+## Customization
+
+Modify agent behavior
+
+```
+src engineering_team config agents.yaml
+```
+
+Modify workflow tasks
+
+```
+src engineering_team config tasks.yaml
+```
+
+Modify crew execution logic
+
+```
+src engineering_team crew.py
+```
+
+---
+
+## Output Files
+
+Crew automatically generates
+
+Design documents in markdown
+Backend python modules
+Frontend UI code
+Automated test cases
+
+All files are saved inside output directory.
+
+---
 
 ## Support
 
-For support, questions, or feedback regarding the EngineeringTeam Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+CrewAI Documentation
+[https://docs.crewai.com](https://docs.crewai.com)
 
-Let's create wonders together with the power and simplicity of crewAI.
+CrewAI Repository
+[https://github.com/joaomdmoura/crewai](https://github.com/joaomdmoura/crewai)
+
+---
+
+## Future Improvements
+
+Improve LLM output accuracy
+Add persistent database storage
+Add authentication layer
+Add multi module generation
+Improve UI styling
+
+---
+
+
