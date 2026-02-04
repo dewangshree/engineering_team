@@ -181,6 +181,3 @@ Add persistent database storage
 Add authentication layer
 Add multi module generation
 Improve UI styling
-
-
-
